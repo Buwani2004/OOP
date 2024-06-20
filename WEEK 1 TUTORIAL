@@ -1,0 +1,162 @@
+class Parent:
+def __init__(self,name,date_of_birth):
+    #_before the method or attribute means private 
+    #_after the method or attricbute means python keyboard
+    self.__name = name
+    self.__dob = date_of_birth
+    return
+
+    property 
+    def name(self):
+        # @ means annotation 
+        #property, special method for accessing attribute 
+        #this is an accessor which is public 
+        return self.__name
+
+    def __str__(self) -> str: 
+        #overwriting a method 
+        return " ", join.([self.name,self.date_of_birth])
+
+    pass 
+
+    Patient_1 = Patient("Bob Dawes", "18-212-1989")
+    Patient_2 = Patient("Marry Hawke", "01-02-1956")
+
+    print(patient_01.name)
+    print(patient_02.name)
+
+    print(patient_01)
+    print(patient_02)
+
+    class Calculator:
+        def __init__(self) -> None:
+            self.__history = [] #list
+            self.__home()
+            return
+
+       def history(self) -> None:
+        ''' 
+        Method to display history of all calculations. 
+        '''
+            if len(self.history) > 0:
+                for operation in self.__history:
+                    print (operation)
+                    pass 
+                pass 
+            else:
+                print("No history")
+                pass
+             self.__home()
+             return
+        def __home(self) -> None:
+            ''' 
+            Method for displaying menus, should be private.
+            '''
+            print("Calculator")
+            print("1. Add")
+            print("2. Subtract")
+            print("3. Multiply")
+            print("4. Divide")
+            print("5. History")
+            print("6. Close")
+            response = input("Please enter an option")
+            # exception handling 
+            try:
+                option = int (response)
+                option = [
+                    self.add,
+                    self.subtract,
+                    self.multiply,
+                    self.divide,
+                    self.history,
+                    self.close 
+                ]
+                options=[option-1]() #this calls the methods
+                pass
+            except:
+                print("Wrong input, must be a number between 1 and 6")
+                self.__home()
+                pass
+            return
+
+        def operation(self,first,second,answer,operator) -> str:
+            '''
+            Helper method for storing calculations.
+            Parameters are first (number), second(number), answer(number), operator (+,-,x,/)
+            '''
+            values = [
+                str(first), operator, str(second), 'm', str(answer)
+            ]
+            operation_string = " ".join(values)
+            self.history.append(operation_string) #add to history 
+            return operation_string 
+        def add(self) -> None: 
+            print("Adding")
+            first = input("Please enter a number: ")
+            second = input("Please enter another number: ")
+            try:
+                answer= float(first) + float(second)
+                # operation = " ".join([str(first) "+", str(second), "=", str(answer)])
+                operation = self.__operation(first, second, answer, '+')
+                print(operation)
+                pass
+            except: 
+                print("Must be numbers")
+                pass
+            self.__home()
+            return
+        def subtract(self) -> None: 
+            print("Subtracting")
+            first =input("Please enter a number: ")
+            second =input("Please enter another number: ")
+            try:
+                answer = float(first) - float(second)
+                # operation = " ".join([str(first) "-", str(second), "=", str(answer)])
+                operation = self.__operation(first, second, answer, '-')
+                 print(operation)
+                 pass
+            except:
+                print("Must be numbers")
+                pass
+            self.__home()
+            return 
+        def multiply(self) -> None: 
+            print("Multiplying")
+            first =input("Please enter a number: ")
+            second =input("Please enter another number: ")
+            try:
+                answer = float(first) * float(second)
+                # operation = " ".join([str(first) "x", str(second), "=", str(answer)])
+                operation = self.__operation(first, second, answer, 'x')
+                 print(operation)
+                 pass
+            except:
+                print("Must be numbers")
+                pass
+            self.__home()
+            return 
+        def divide(self) -> None: 
+            print("Divide")
+            first =input("Please enter a number: ")
+            second =input("Please enter another number: ")
+            try:
+                answer = float(first) / float(second)
+                # operation = " ".join([str(first) "/", str(second), "=", str(answer)])
+                operation = self.__operation(first, second, answer, '/')
+                 print(operation)
+                 pass
+            except ZeroDivisionError:
+                print("Cannot divide by zero")
+            except Exception: 
+                print("Must be numbers")
+                pass
+            self.home()
+            return
+
+        def close(self) -> None: 
+            print("Closing")
+            # empty method is a method stub 
+            return
+        pass
+
+Calculator() #this runs everything 
